@@ -26,7 +26,7 @@ THE SOFTWARE.
 # This program makes the Pi speak aloud the text entered by the user and it also records it to a file named Text.wav.
 
 from num2words import num2words
-from subprocess import call
+import subprocess 
 
 
 cmd_beg= 'espeak '
@@ -40,8 +40,4 @@ print(text)
 text = text.replace(' ', '_')
 
 #Calls the Espeak TTS Engine to read aloud a Text
-call([cmd_beg+cmd_out+text+cmd_end], shell=True)
-
-
-
-
+subprocess.call([cmd_beg+text+cmd_end], shell=True)
